@@ -51,7 +51,7 @@ The built simulation environment is as follows.
 
 The 5GC / eBPF/XDP UPF / UE / RAN used are as follows.
 - 5GC - Open5GS v2.6.6 (2023.11.04) - https://github.com/open5gs/open5gs
-- eBPF/XDP UPF - eUPF `120-upf-ftup-fteid` branch (2023.11.22) - https://github.com/edgecomllc/eupf
+- eBPF/XDP UPF - eUPF `120-upf-ftup-fteid` branch (2023.11.24) - https://github.com/edgecomllc/eupf
 - UE / RAN - UERANSIM v3.2.6 (2023.06.14) - https://github.com/aligungr/UERANSIM
 
 Each VMs are as follows.  
@@ -111,7 +111,7 @@ The DN is as follows.
 
 Please refer to the following for building Open5GS, eUPF and UERANSIM respectively.
 - Open5GS v2.6.6 (2023.11.04) - https://open5gs.org/open5gs/docs/guide/02-building-open5gs-from-sources/
-- eUPF `120-upf-ftup-fteid` branch (2023.11.22) - https://github.com/s5uishida/install_eupf
+- eUPF `120-upf-ftup-fteid` branch (2023.11.24) - https://github.com/s5uishida/install_eupf
 - UERANSIM v3.2.6 (2023.06.14) - https://github.com/aligungr/UERANSIM/wiki/Installation
 
 <a id="changes_cp"></a>
@@ -305,7 +305,7 @@ See [this1](https://github.com/s5uishida/install_eupf#setup-eupf-on-vm-up) and [
 
 Please refer to the following for building Open5GS, eUPF and UERANSIM respectively.
 - Open5GS v2.6.6 (2023.11.04) - https://open5gs.org/open5gs/docs/guide/02-building-open5gs-from-sources/
-- eUPF `120-upf-ftup-fteid` branch (2023.11.22) - https://github.com/s5uishida/install_eupf
+- eUPF `120-upf-ftup-fteid` branch (2023.11.24) - https://github.com/s5uishida/install_eupf
 - UERANSIM v3.2.6 (2023.06.14) - https://github.com/aligungr/UERANSIM/wiki/Installation
 
 Install MongoDB on Open5GS 5GC C-Plane machine.
@@ -344,14 +344,14 @@ sleep 2
 ```
 The PFCP association log between eUPF and Open5GS SMF is as follows.
 ```
-2023/11/22 20:13:01 INF Got Association Setup Request from: 192.168.14.111. 
+2023/11/24 22:18:49 INF Got Association Setup Request from: 192.168.14.111. 
 
-2023/11/22 20:13:01 INF 
+2023/11/24 22:18:49 INF 
 Association Setup Request:
   Node ID: 192.168.14.111
-  Recovery Time: 2023-11-22 20:13:00 +0900 JST
+  Recovery Time: 2023-11-24 22:18:49 +0900 JST
 
-2023/11/22 20:13:01 INF Saving new association: &{ID:192.168.14.111 Addr:192.168.14.111 NextSessionID:1 NextSequenceID:1 Sessions:map[] HeartbeatRetries:0 cancelRetries:<nil>}
+2023/11/24 22:18:49 INF Saving new association: &{ID:192.168.14.111 Addr:192.168.14.111 NextSessionID:1 NextSequenceID:1 Sessions:map[] HeartbeatRetries:0 cancelRetries:<nil>}
 ```
 
 <a id="run_ueran"></a>
@@ -373,19 +373,19 @@ Start gNB as follows.
 ```
 # ./nr-gnb -c ../config/open5gs-gnb.yaml
 UERANSIM v3.2.6
-[2023-11-22 20:13:49.151] [sctp] [info] Trying to establish SCTP connection... (192.168.0.111:38412)
-[2023-11-22 20:13:49.154] [sctp] [info] SCTP connection established (192.168.0.111:38412)
-[2023-11-22 20:13:49.154] [sctp] [debug] SCTP association setup ascId[4]
-[2023-11-22 20:13:49.154] [ngap] [debug] Sending NG Setup Request
-[2023-11-22 20:13:49.155] [ngap] [debug] NG Setup Response received
-[2023-11-22 20:13:49.155] [ngap] [info] NG Setup procedure is successful
+[2023-11-24 22:19:22.068] [sctp] [info] Trying to establish SCTP connection... (192.168.0.111:38412)
+[2023-11-24 22:19:22.070] [sctp] [info] SCTP connection established (192.168.0.111:38412)
+[2023-11-24 22:19:22.071] [sctp] [debug] SCTP association setup ascId[7]
+[2023-11-24 22:19:22.071] [ngap] [debug] Sending NG Setup Request
+[2023-11-24 22:19:22.072] [ngap] [debug] NG Setup Response received
+[2023-11-24 22:19:22.072] [ngap] [info] NG Setup procedure is successful
 ```
 The Open5GS C-Plane log when executed is as follows.
 ```
-11/22 20:13:49.144: [amf] INFO: gNB-N2 accepted[192.168.0.131]:39563 in ng-path module (../src/amf/ngap-sctp.c:113)
-11/22 20:13:49.144: [amf] INFO: gNB-N2 accepted[192.168.0.131] in master_sm module (../src/amf/amf-sm.c:741)
-11/22 20:13:49.144: [amf] INFO: [Added] Number of gNBs is now 1 (../src/amf/context.c:1203)
-11/22 20:13:49.144: [amf] INFO: gNB-N2[192.168.0.131] max_num_of_ostreams : 10 (../src/amf/amf-sm.c:780)
+11/24 22:19:22.071: [amf] INFO: gNB-N2 accepted[192.168.0.131]:55858 in ng-path module (../src/amf/ngap-sctp.c:113)
+11/24 22:19:22.071: [amf] INFO: gNB-N2 accepted[192.168.0.131] in master_sm module (../src/amf/amf-sm.c:741)
+11/24 22:19:22.071: [amf] INFO: [Added] Number of gNBs is now 1 (../src/amf/context.c:1203)
+11/24 22:19:22.071: [amf] INFO: gNB-N2[192.168.0.131] max_num_of_ostreams : 10 (../src/amf/amf-sm.c:780)
 ```
 
 <a id="start_ue"></a>
@@ -396,97 +396,104 @@ Start UE as follows. This will register the UE with 5GC and establish a PDU sess
 ```
 # ./nr-ue -c ../config/open5gs-ue.yaml
 UERANSIM v3.2.6
-[2023-11-22 20:14:48.239] [nas] [info] UE switches to state [MM-DEREGISTERED/PLMN-SEARCH]
-[2023-11-22 20:14:48.240] [rrc] [debug] New signal detected for cell[1], total [1] cells in coverage
-[2023-11-22 20:14:48.240] [nas] [info] Selected plmn[001/01]
-[2023-11-22 20:14:48.240] [rrc] [info] Selected cell plmn[001/01] tac[1] category[SUITABLE]
-[2023-11-22 20:14:48.241] [nas] [info] UE switches to state [MM-DEREGISTERED/PS]
-[2023-11-22 20:14:48.241] [nas] [info] UE switches to state [MM-DEREGISTERED/NORMAL-SERVICE]
-[2023-11-22 20:14:48.241] [nas] [debug] Initial registration required due to [MM-DEREG-NORMAL-SERVICE]
-[2023-11-22 20:14:48.243] [nas] [debug] UAC access attempt is allowed for identity[0], category[MO_sig]
-[2023-11-22 20:14:48.244] [nas] [debug] Sending Initial Registration
-[2023-11-22 20:14:48.244] [rrc] [debug] Sending RRC Setup Request
-[2023-11-22 20:14:48.244] [nas] [info] UE switches to state [MM-REGISTER-INITIATED]
-[2023-11-22 20:14:48.245] [rrc] [info] RRC connection established
-[2023-11-22 20:14:48.245] [rrc] [info] UE switches to state [RRC-CONNECTED]
-[2023-11-22 20:14:48.245] [nas] [info] UE switches to state [CM-CONNECTED]
-[2023-11-22 20:14:48.253] [nas] [debug] Authentication Request received
-[2023-11-22 20:14:48.257] [nas] [debug] Security Mode Command received
-[2023-11-22 20:14:48.258] [nas] [debug] Selected integrity[2] ciphering[0]
-[2023-11-22 20:14:48.273] [nas] [debug] Registration accept received
-[2023-11-22 20:14:48.274] [nas] [info] UE switches to state [MM-REGISTERED/NORMAL-SERVICE]
-[2023-11-22 20:14:48.274] [nas] [debug] Sending Registration Complete
-[2023-11-22 20:14:48.274] [nas] [info] Initial Registration is successful
-[2023-11-22 20:14:48.274] [nas] [debug] Sending PDU Session Establishment Request
-[2023-11-22 20:14:48.274] [nas] [debug] UAC access attempt is allowed for identity[0], category[MO_sig]
-[2023-11-22 20:14:48.477] [nas] [debug] Configuration Update Command received
-[2023-11-22 20:14:48.506] [nas] [debug] PDU Session Establishment Accept received
-[2023-11-22 20:14:48.510] [nas] [info] PDU Session establishment is successful PSI[1]
-[2023-11-22 20:14:48.536] [app] [info] Connection setup for PDU session[1] is successful, TUN interface[uesimtun0, 10.45.0.2] is up.
+[2023-11-24 22:20:03.811] [nas] [info] UE switches to state [MM-DEREGISTERED/PLMN-SEARCH]
+[2023-11-24 22:20:03.811] [rrc] [debug] New signal detected for cell[1], total [1] cells in coverage
+[2023-11-24 22:20:03.812] [nas] [info] Selected plmn[001/01]
+[2023-11-24 22:20:03.813] [rrc] [info] Selected cell plmn[001/01] tac[1] category[SUITABLE]
+[2023-11-24 22:20:03.813] [nas] [info] UE switches to state [MM-DEREGISTERED/PS]
+[2023-11-24 22:20:03.813] [nas] [info] UE switches to state [MM-DEREGISTERED/NORMAL-SERVICE]
+[2023-11-24 22:20:03.814] [nas] [debug] Initial registration required due to [MM-DEREG-NORMAL-SERVICE]
+[2023-11-24 22:20:03.816] [nas] [debug] UAC access attempt is allowed for identity[0], category[MO_sig]
+[2023-11-24 22:20:03.816] [nas] [debug] Sending Initial Registration
+[2023-11-24 22:20:03.816] [rrc] [debug] Sending RRC Setup Request
+[2023-11-24 22:20:03.816] [nas] [info] UE switches to state [MM-REGISTER-INITIATED]
+[2023-11-24 22:20:03.817] [rrc] [info] RRC connection established
+[2023-11-24 22:20:03.817] [rrc] [info] UE switches to state [RRC-CONNECTED]
+[2023-11-24 22:20:03.817] [nas] [info] UE switches to state [CM-CONNECTED]
+[2023-11-24 22:20:03.825] [nas] [debug] Authentication Request received
+[2023-11-24 22:20:03.833] [nas] [debug] Security Mode Command received
+[2023-11-24 22:20:03.833] [nas] [debug] Selected integrity[2] ciphering[0]
+[2023-11-24 22:20:03.849] [nas] [debug] Registration accept received
+[2023-11-24 22:20:03.849] [nas] [info] UE switches to state [MM-REGISTERED/NORMAL-SERVICE]
+[2023-11-24 22:20:03.850] [nas] [debug] Sending Registration Complete
+[2023-11-24 22:20:03.850] [nas] [info] Initial Registration is successful
+[2023-11-24 22:20:03.850] [nas] [debug] Sending PDU Session Establishment Request
+[2023-11-24 22:20:03.850] [nas] [debug] UAC access attempt is allowed for identity[0], category[MO_sig]
+[2023-11-24 22:20:04.051] [nas] [debug] Configuration Update Command received
+[2023-11-24 22:20:04.079] [nas] [debug] PDU Session Establishment Accept received
+[2023-11-24 22:20:04.083] [nas] [info] PDU Session establishment is successful PSI[1]
+[2023-11-24 22:20:04.110] [app] [info] Connection setup for PDU session[1] is successful, TUN interface[uesimtun0, 10.45.0.2] is up.
 ```
 The Open5GS C-Plane log when executed is as follows.
 ```
-11/22 20:14:48.235: [amf] INFO: InitialUEMessage (../src/amf/ngap-handler.c:401)
-11/22 20:14:48.235: [amf] INFO: [Added] Number of gNB-UEs is now 1 (../src/amf/context.c:2522)
-11/22 20:14:48.235: [amf] INFO:     RAN_UE_NGAP_ID[1] AMF_UE_NGAP_ID[1] TAC[1] CellID[0x10] (../src/amf/ngap-handler.c:562)
-11/22 20:14:48.235: [amf] INFO: [suci-0-001-01-0000-0-0-0000000000] Unknown UE by SUCI (../src/amf/context.c:1807)
-11/22 20:14:48.236: [amf] INFO: [Added] Number of AMF-UEs is now 1 (../src/amf/context.c:1588)
-11/22 20:14:48.236: [gmm] INFO: Registration request (../src/amf/gmm-sm.c:1165)
-11/22 20:14:48.236: [gmm] INFO: [suci-0-001-01-0000-0-0-0000000000]    SUCI (../src/amf/gmm-handler.c:157)
-11/22 20:14:48.258: [sbi] WARNING: [UDR] (NRF-discover) NF has already been added [192fc8d4-8928-41ee-8c5a-8b86fd419a8f:1] (../lib/sbi/nnrf-handler.c:850)
-11/22 20:14:48.259: [sbi] WARNING: NF EndPoint updated [127.0.0.20:80] (../lib/sbi/context.c:1743)
-11/22 20:14:48.259: [sbi] WARNING: NF EndPoint updated [127.0.0.20:7777] (../lib/sbi/context.c:1621)
-11/22 20:14:48.259: [sbi] INFO: [UDR] (NF-discover) NF Profile updated [192fc8d4-8928-41ee-8c5a-8b86fd419a8f:1] (../lib/sbi/nnrf-handler.c:880)
-11/22 20:14:48.260: [sbi] INFO: [UDR] (SCP-discover) NF registered [192fc8d4-8928-41ee-8c5a-8b86fd419a8f:1] (../lib/sbi/path.c:149)
-11/22 20:14:48.463: [gmm] INFO: [imsi-001010000000000] Registration complete (../src/amf/gmm-sm.c:2097)
-11/22 20:14:48.464: [amf] INFO: [imsi-001010000000000] Configuration update command (../src/amf/nas-path.c:612)
-11/22 20:14:48.464: [gmm] INFO:     UTC [2023-11-22T11:14:48] Timezone[0]/DST[0] (../src/amf/gmm-build.c:558)
-11/22 20:14:48.465: [gmm] INFO:     LOCAL [2023-11-22T20:14:48] Timezone[32400]/DST[0] (../src/amf/gmm-build.c:563)
-11/22 20:14:48.465: [amf] INFO: [Added] Number of AMF-Sessions is now 1 (../src/amf/context.c:2543)
-11/22 20:14:48.466: [gmm] INFO: UE SUPI[imsi-001010000000000] DNN[internet] S_NSSAI[SST:1 SD:0xffffff] smContextRef [NULL] (../src/amf/gmm-handler.c:1247)
-11/22 20:14:48.466: [gmm] INFO: SMF Instance [193ba71c-8928-41ee-bd45-937b475f7792] (../src/amf/gmm-handler.c:1286)
-11/22 20:14:48.469: [smf] INFO: [Added] Number of SMF-UEs is now 1 (../src/smf/context.c:1010)
-11/22 20:14:48.469: [smf] INFO: [Added] Number of SMF-Sessions is now 1 (../src/smf/context.c:3057)
-11/22 20:14:48.472: [sbi] WARNING: [UDM] (NRF-discover) NF has already been added [192945f4-8928-41ee-ba6e-b7ba9f503488:1] (../lib/sbi/nnrf-handler.c:850)
-11/22 20:14:48.473: [sbi] WARNING: NF EndPoint updated [127.0.0.12:80] (../lib/sbi/context.c:1743)
-11/22 20:14:48.473: [sbi] WARNING: NF EndPoint updated [127.0.0.12:7777] (../lib/sbi/context.c:1621)
-11/22 20:14:48.474: [sbi] WARNING: NF EndPoint updated [127.0.0.12:7777] (../lib/sbi/context.c:1621)
-11/22 20:14:48.474: [sbi] WARNING: NF EndPoint updated [127.0.0.12:7777] (../lib/sbi/context.c:1621)
-11/22 20:14:48.474: [sbi] INFO: [UDM] (NF-discover) NF Profile updated [192945f4-8928-41ee-ba6e-b7ba9f503488:1] (../lib/sbi/nnrf-handler.c:880)
-11/22 20:14:48.477: [sbi] INFO: [UDM] (SCP-discover) NF registered [192945f4-8928-41ee-ba6e-b7ba9f503488:1] (../lib/sbi/path.c:149)
-11/22 20:14:48.480: [sbi] WARNING: [PCF] (NRF-discover) NF has already been added [193010f0-8928-41ee-b5b9-87a012ba5fc9:1] (../lib/sbi/nnrf-handler.c:850)
-11/22 20:14:48.480: [sbi] WARNING: NF EndPoint updated [127.0.0.13:80] (../lib/sbi/context.c:1743)
-11/22 20:14:48.481: [sbi] WARNING: NF EndPoint updated [127.0.0.13:7777] (../lib/sbi/context.c:1621)
-11/22 20:14:48.481: [sbi] WARNING: NF EndPoint updated [127.0.0.13:7777] (../lib/sbi/context.c:1621)
-11/22 20:14:48.481: [sbi] WARNING: NF EndPoint updated [127.0.0.13:7777] (../lib/sbi/context.c:1621)
-11/22 20:14:48.481: [sbi] INFO: [PCF] (NF-discover) NF Profile updated [193010f0-8928-41ee-b5b9-87a012ba5fc9:1] (../lib/sbi/nnrf-handler.c:880)
-11/22 20:14:48.483: [sbi] WARNING: [UDR] (NRF-discover) NF has already been added [192fc8d4-8928-41ee-8c5a-8b86fd419a8f:1] (../lib/sbi/nnrf-handler.c:850)
-11/22 20:14:48.483: [sbi] WARNING: NF EndPoint updated [127.0.0.20:80] (../lib/sbi/context.c:1743)
-11/22 20:14:48.483: [sbi] WARNING: NF EndPoint updated [127.0.0.20:7777] (../lib/sbi/context.c:1621)
-11/22 20:14:48.483: [sbi] INFO: [UDR] (NF-discover) NF Profile updated [192fc8d4-8928-41ee-8c5a-8b86fd419a8f:1] (../lib/sbi/nnrf-handler.c:880)
-11/22 20:14:48.484: [sbi] WARNING: [UDR] (SCP-discover) NF has already been added [192fc8d4-8928-41ee-8c5a-8b86fd419a8f:2] (../lib/sbi/path.c:154)
-11/22 20:14:48.486: [sbi] WARNING: [BSF] (NRF-discover) NF has already been added [1928ca66-8928-41ee-a9ef-17c72a2cff38:1] (../lib/sbi/nnrf-handler.c:850)
-11/22 20:14:48.486: [sbi] WARNING: NF EndPoint updated [127.0.0.15:80] (../lib/sbi/context.c:1743)
-11/22 20:14:48.486: [sbi] WARNING: NF EndPoint updated [127.0.0.15:7777] (../lib/sbi/context.c:1621)
-11/22 20:14:48.486: [sbi] INFO: [BSF] (NF-discover) NF Profile updated [1928ca66-8928-41ee-a9ef-17c72a2cff38:1] (../lib/sbi/nnrf-handler.c:880)
-11/22 20:14:48.487: [sbi] INFO: [BSF] (SCP-discover) NF registered [1928ca66-8928-41ee-a9ef-17c72a2cff38:1] (../lib/sbi/path.c:149)
-11/22 20:14:48.488: [sbi] INFO: [PCF] (SCP-discover) NF registered [193010f0-8928-41ee-b5b9-87a012ba5fc9:1] (../lib/sbi/path.c:149)
-11/22 20:14:48.489: [smf] INFO: UE SUPI[imsi-001010000000000] DNN[internet] IPv4[10.45.0.2] IPv6[] (../src/smf/npcf-handler.c:539)
-11/22 20:14:48.490: [gtp] INFO: gtp_connect() [192.168.13.151]:2152 (../lib/gtp/path.c:60)
-11/22 20:14:48.500: [core] WARNING: Unknown TLV type [60] (../lib/core/ogs-tlv-msg.c:672)
-11/22 20:14:48.501: [sbi] WARNING: [UDM] (NRF-discover) NF has already been added [192945f4-8928-41ee-ba6e-b7ba9f503488:1] (../lib/sbi/nnrf-handler.c:850)
-11/22 20:14:48.502: [sbi] WARNING: NF EndPoint updated [127.0.0.12:80] (../lib/sbi/context.c:1743)
-11/22 20:14:48.502: [sbi] WARNING: NF EndPoint updated [127.0.0.12:7777] (../lib/sbi/context.c:1621)
-11/22 20:14:48.502: [sbi] WARNING: NF EndPoint updated [127.0.0.12:7777] (../lib/sbi/context.c:1621)
-11/22 20:14:48.502: [sbi] WARNING: NF EndPoint updated [127.0.0.12:7777] (../lib/sbi/context.c:1621)
-11/22 20:14:48.503: [sbi] INFO: [UDM] (NF-discover) NF Profile updated [192945f4-8928-41ee-ba6e-b7ba9f503488:1] (../lib/sbi/nnrf-handler.c:880)
-11/22 20:14:48.505: [sbi] WARNING: [UDM] (SCP-discover) NF has already been added [192945f4-8928-41ee-ba6e-b7ba9f503488:2] (../lib/sbi/path.c:154)
-11/22 20:14:48.505: [amf] INFO: [imsi-001010000000000:1:11][0:0:NULL] /nsmf-pdusession/v1/sm-contexts/{smContextRef}/modify (../src/amf/nsmf-handler.c:837)
+11/24 22:20:03.835: [amf] INFO: InitialUEMessage (../src/amf/ngap-handler.c:401)
+11/24 22:20:03.835: [amf] INFO: [Added] Number of gNB-UEs is now 1 (../src/amf/context.c:2522)
+11/24 22:20:03.835: [amf] INFO:     RAN_UE_NGAP_ID[1] AMF_UE_NGAP_ID[1] TAC[1] CellID[0x10] (../src/amf/ngap-handler.c:562)
+11/24 22:20:03.835: [amf] INFO: [suci-0-001-01-0000-0-0-0000000000] Unknown UE by SUCI (../src/amf/context.c:1807)
+11/24 22:20:03.835: [amf] INFO: [Added] Number of AMF-UEs is now 1 (../src/amf/context.c:1588)
+11/24 22:20:03.835: [gmm] INFO: Registration request (../src/amf/gmm-sm.c:1165)
+11/24 22:20:03.835: [gmm] INFO: [suci-0-001-01-0000-0-0-0000000000]    SUCI (../src/amf/gmm-handler.c:157)
+11/24 22:20:03.837: [sbi] WARNING: [UDM] (NRF-discover) NF has already been added [014455b4-8acc-41ee-914e-9b89c9a7f724:1] (../lib/sbi/nnrf-handler.c:850)
+11/24 22:20:03.837: [sbi] WARNING: NF EndPoint updated [127.0.0.12:80] (../lib/sbi/context.c:1743)
+11/24 22:20:03.837: [sbi] WARNING: NF EndPoint updated [127.0.0.12:7777] (../lib/sbi/context.c:1621)
+11/24 22:20:03.838: [sbi] WARNING: NF EndPoint updated [127.0.0.12:7777] (../lib/sbi/context.c:1621)
+11/24 22:20:03.838: [sbi] WARNING: NF EndPoint updated [127.0.0.12:7777] (../lib/sbi/context.c:1621)
+11/24 22:20:03.838: [sbi] INFO: [UDM] (NF-discover) NF Profile updated [014455b4-8acc-41ee-914e-9b89c9a7f724:1] (../lib/sbi/nnrf-handler.c:880)
+11/24 22:20:03.841: [sbi] INFO: [UDM] (SCP-discover) NF registered [014455b4-8acc-41ee-914e-9b89c9a7f724:1] (../lib/sbi/path.c:149)
+11/24 22:20:03.863: [sbi] WARNING: [UDR] (NRF-discover) NF has already been added [014b9c8e-8acc-41ee-95ff-b1cc7878b4be:1] (../lib/sbi/nnrf-handler.c:850)
+11/24 22:20:03.863: [sbi] WARNING: NF EndPoint updated [127.0.0.20:80] (../lib/sbi/context.c:1743)
+11/24 22:20:03.863: [sbi] WARNING: NF EndPoint updated [127.0.0.20:7777] (../lib/sbi/context.c:1621)
+11/24 22:20:03.863: [sbi] INFO: [UDR] (NF-discover) NF Profile updated [014b9c8e-8acc-41ee-95ff-b1cc7878b4be:1] (../lib/sbi/nnrf-handler.c:880)
+11/24 22:20:03.864: [sbi] INFO: [UDR] (SCP-discover) NF registered [014b9c8e-8acc-41ee-95ff-b1cc7878b4be:1] (../lib/sbi/path.c:149)
+11/24 22:20:04.067: [gmm] INFO: [imsi-001010000000000] Registration complete (../src/amf/gmm-sm.c:2097)
+11/24 22:20:04.068: [amf] INFO: [imsi-001010000000000] Configuration update command (../src/amf/nas-path.c:612)
+11/24 22:20:04.068: [gmm] INFO:     UTC [2023-11-24T13:20:04] Timezone[0]/DST[0] (../src/amf/gmm-build.c:558)
+11/24 22:20:04.068: [gmm] INFO:     LOCAL [2023-11-24T22:20:04] Timezone[32400]/DST[0] (../src/amf/gmm-build.c:563)
+11/24 22:20:04.068: [amf] INFO: [Added] Number of AMF-Sessions is now 1 (../src/amf/context.c:2543)
+11/24 22:20:04.068: [gmm] INFO: UE SUPI[imsi-001010000000000] DNN[internet] S_NSSAI[SST:1 SD:0xffffff] smContextRef [NULL] (../src/amf/gmm-handler.c:1247)
+11/24 22:20:04.068: [gmm] INFO: SMF Instance [0156b402-8acc-41ee-9119-d902a40b2147] (../src/amf/gmm-handler.c:1286)
+11/24 22:20:04.070: [smf] INFO: [Added] Number of SMF-UEs is now 1 (../src/smf/context.c:1010)
+11/24 22:20:04.071: [smf] INFO: [Added] Number of SMF-Sessions is now 1 (../src/smf/context.c:3057)
+11/24 22:20:04.074: [sbi] WARNING: [UDM] (NRF-discover) NF has already been added [014455b4-8acc-41ee-914e-9b89c9a7f724:1] (../lib/sbi/nnrf-handler.c:850)
+11/24 22:20:04.074: [sbi] WARNING: NF EndPoint updated [127.0.0.12:80] (../lib/sbi/context.c:1743)
+11/24 22:20:04.075: [sbi] WARNING: NF EndPoint updated [127.0.0.12:7777] (../lib/sbi/context.c:1621)
+11/24 22:20:04.075: [sbi] WARNING: NF EndPoint updated [127.0.0.12:7777] (../lib/sbi/context.c:1621)
+11/24 22:20:04.075: [sbi] WARNING: NF EndPoint updated [127.0.0.12:7777] (../lib/sbi/context.c:1621)
+11/24 22:20:04.076: [sbi] INFO: [UDM] (NF-discover) NF Profile updated [014455b4-8acc-41ee-914e-9b89c9a7f724:1] (../lib/sbi/nnrf-handler.c:880)
+11/24 22:20:04.081: [sbi] INFO: [UDM] (SCP-discover) NF registered [014455b4-8acc-41ee-914e-9b89c9a7f724:1] (../lib/sbi/path.c:149)
+11/24 22:20:04.082: [sbi] WARNING: [PCF] (NRF-discover) NF has already been added [014b5e90-8acc-41ee-8813-718082665f6c:1] (../lib/sbi/nnrf-handler.c:850)
+11/24 22:20:04.082: [sbi] WARNING: NF EndPoint updated [127.0.0.13:80] (../lib/sbi/context.c:1743)
+11/24 22:20:04.083: [sbi] WARNING: NF EndPoint updated [127.0.0.13:7777] (../lib/sbi/context.c:1621)
+11/24 22:20:04.083: [sbi] WARNING: NF EndPoint updated [127.0.0.13:7777] (../lib/sbi/context.c:1621)
+11/24 22:20:04.083: [sbi] WARNING: NF EndPoint updated [127.0.0.13:7777] (../lib/sbi/context.c:1621)
+11/24 22:20:04.083: [sbi] INFO: [PCF] (NF-discover) NF Profile updated [014b5e90-8acc-41ee-8813-718082665f6c:1] (../lib/sbi/nnrf-handler.c:880)
+11/24 22:20:04.085: [sbi] WARNING: [UDR] (NRF-discover) NF has already been added [014b9c8e-8acc-41ee-95ff-b1cc7878b4be:1] (../lib/sbi/nnrf-handler.c:850)
+11/24 22:20:04.085: [sbi] WARNING: NF EndPoint updated [127.0.0.20:80] (../lib/sbi/context.c:1743)
+11/24 22:20:04.085: [sbi] WARNING: NF EndPoint updated [127.0.0.20:7777] (../lib/sbi/context.c:1621)
+11/24 22:20:04.085: [sbi] INFO: [UDR] (NF-discover) NF Profile updated [014b9c8e-8acc-41ee-95ff-b1cc7878b4be:1] (../lib/sbi/nnrf-handler.c:880)
+11/24 22:20:04.086: [sbi] WARNING: [UDR] (SCP-discover) NF has already been added [014b9c8e-8acc-41ee-95ff-b1cc7878b4be:2] (../lib/sbi/path.c:154)
+11/24 22:20:04.087: [sbi] WARNING: [BSF] (NRF-discover) NF has already been added [0143b08c-8acc-41ee-b7ff-9b1f8cba4015:1] (../lib/sbi/nnrf-handler.c:850)
+11/24 22:20:04.088: [sbi] WARNING: NF EndPoint updated [127.0.0.15:80] (../lib/sbi/context.c:1743)
+11/24 22:20:04.088: [sbi] WARNING: NF EndPoint updated [127.0.0.15:7777] (../lib/sbi/context.c:1621)
+11/24 22:20:04.088: [sbi] INFO: [BSF] (NF-discover) NF Profile updated [0143b08c-8acc-41ee-b7ff-9b1f8cba4015:1] (../lib/sbi/nnrf-handler.c:880)
+11/24 22:20:04.089: [sbi] INFO: [BSF] (SCP-discover) NF registered [0143b08c-8acc-41ee-b7ff-9b1f8cba4015:1] (../lib/sbi/path.c:149)
+11/24 22:20:04.090: [sbi] INFO: [PCF] (SCP-discover) NF registered [014b5e90-8acc-41ee-8813-718082665f6c:1] (../lib/sbi/path.c:149)
+11/24 22:20:04.090: [smf] INFO: UE SUPI[imsi-001010000000000] DNN[internet] IPv4[10.45.0.2] IPv6[] (../src/smf/npcf-handler.c:539)
+11/24 22:20:04.092: [gtp] INFO: gtp_connect() [192.168.13.151]:2152 (../lib/gtp/path.c:60)
+11/24 22:20:04.100: [core] WARNING: Unknown TLV type [60] (../lib/core/ogs-tlv-msg.c:672)
+11/24 22:20:04.101: [sbi] WARNING: [UDM] (NRF-discover) NF has already been added [014455b4-8acc-41ee-914e-9b89c9a7f724:1] (../lib/sbi/nnrf-handler.c:850)
+11/24 22:20:04.101: [sbi] WARNING: NF EndPoint updated [127.0.0.12:80] (../lib/sbi/context.c:1743)
+11/24 22:20:04.102: [sbi] WARNING: NF EndPoint updated [127.0.0.12:7777] (../lib/sbi/context.c:1621)
+11/24 22:20:04.102: [sbi] WARNING: NF EndPoint updated [127.0.0.12:7777] (../lib/sbi/context.c:1621)
+11/24 22:20:04.102: [sbi] WARNING: NF EndPoint updated [127.0.0.12:7777] (../lib/sbi/context.c:1621)
+11/24 22:20:04.102: [sbi] INFO: [UDM] (NF-discover) NF Profile updated [014455b4-8acc-41ee-914e-9b89c9a7f724:1] (../lib/sbi/nnrf-handler.c:880)
+11/24 22:20:04.104: [sbi] WARNING: [UDM] (SCP-discover) NF has already been added [014455b4-8acc-41ee-914e-9b89c9a7f724:2] (../lib/sbi/path.c:154)
+11/24 22:20:04.105: [amf] INFO: [imsi-001010000000000:1:11][0:0:NULL] /nsmf-pdusession/v1/sm-contexts/{smContextRef}/modify (../src/amf/nsmf-handler.c:837)
 ```
 The PDU session establishment log of eUPF is as follows.
 ```
-2023/11/22 20:14:48 INF Got Session Establishment Request from: 192.168.14.111.
-2023/11/22 20:14:48 INF 
+2023/11/24 22:20:04 INF Got Session Establishment Request from: 192.168.14.111.
+2023/11/24 22:20:04 INF 
 Session Establishment Request:
   CreatePDR ID: 1 
     FAR ID: 1 
@@ -542,18 +549,18 @@ Session Establishment Request:
     Volume Threshold: &{Flags:1 TotalVolume:104857600 UplinkVolume:0 DownlinkVolume:0} 
   CreateBAR ID: 1
 
-2023/11/22 20:14:48 INF Saving FAR info to session: 1, {Action:12 OuterHeaderCreation:0 Teid:0 RemoteIP:0 LocalIP:2534254784 TransportLevelMarking:0}
-2023/11/22 20:14:48 INF WARN: No OuterHeaderCreation
-2023/11/22 20:14:48 INF Saving FAR info to session: 2, {Action:2 OuterHeaderCreation:0 Teid:0 RemoteIP:0 LocalIP:2534254784 TransportLevelMarking:0}
-2023/11/22 20:14:48 INF Saving FAR info to session: 3, {Action:2 OuterHeaderCreation:1 Teid:1 RemoteIP:1863231680 LocalIP:2534254784 TransportLevelMarking:0}
-2023/11/22 20:14:48 INF Saving QER info to session: 1, {GateStatusUL:0 GateStatusDL:0 Qfi:1 MaxBitrateUL:1410065408 MaxBitrateDL:1410065408 StartUL:0 StartDL:0}
-2023/11/22 20:14:48 Matched groups: [permit out 58 from ff02::2/128 to assigned 58 ff02::2/128 assigned]
-2023/11/22 20:14:48 INF Session Establishment Request from 192.168.14.111 accepted.
-2023/11/22 20:14:48 INF Got Session Modification Request from: 192.168.14.111. 
+2023/11/24 22:20:04 INF Saving FAR info to session: 1, {Action:12 OuterHeaderCreation:0 Teid:0 RemoteIP:0 LocalIP:2534254784 TransportLevelMarking:0}
+2023/11/24 22:20:04 INF WARN: No OuterHeaderCreation
+2023/11/24 22:20:04 INF Saving FAR info to session: 2, {Action:2 OuterHeaderCreation:0 Teid:0 RemoteIP:0 LocalIP:2534254784 TransportLevelMarking:0}
+2023/11/24 22:20:04 INF Saving FAR info to session: 3, {Action:2 OuterHeaderCreation:1 Teid:1 RemoteIP:1863231680 LocalIP:2534254784 TransportLevelMarking:0}
+2023/11/24 22:20:04 INF Saving QER info to session: 1, {GateStatusUL:0 GateStatusDL:0 Qfi:1 MaxBitrateUL:1410065408 MaxBitrateDL:1410065408 StartUL:0 StartDL:0}
+2023/11/24 22:20:04 Matched groups: [permit out 58 from ff02::2/128 to assigned 58 ff02::2 128  assigned  ]
+2023/11/24 22:20:04 INF Session Establishment Request from 192.168.14.111 accepted.
+2023/11/24 22:20:04 INF Got Session Modification Request from: 192.168.14.111. 
 
-2023/11/22 20:14:48 INF Finding association for 192.168.14.111
-2023/11/22 20:14:48 INF Finding session 2
-2023/11/22 20:14:48 INF 
+2023/11/24 22:20:04 INF Finding association for 192.168.14.111
+2023/11/24 22:20:04 INF Finding session 2
+2023/11/24 22:20:04 INF 
 Session Modification Request:
   UpdateFAR ID: 1 
     Apply Action: [2 0] 
@@ -561,21 +568,21 @@ Session Modification Request:
       Network Instance:internet 
       Outer Header Creation: &{OuterHeaderCreationDescription:256 TEID:1 IPv4Address:192.168.13.131 IPv6Address:<nil> PortNumber:0 CTag:0 STag:0} 
 
-2023/11/22 20:14:48 INF Updating FAR info: 1, {FarInfo:{Action:2 OuterHeaderCreation:1 Teid:1 RemoteIP:2198710464 LocalIP:2534254784 TransportLevelMarking:0} GlobalId:0}
+2023/11/24 22:20:04 INF Updating FAR info: 1, {FarInfo:{Action:2 OuterHeaderCreation:1 Teid:1 RemoteIP:2198710464 LocalIP:2534254784 TransportLevelMarking:0} GlobalId:0}
 ```
 Looking at the console log of the `nr-ue` command, UE has been assigned the IP address `10.45.0.2` from Open5GS 5GC.
 ```
-[2023-11-22 20:14:48.536] [app] [info] Connection setup for PDU session[1] is successful, TUN interface[uesimtun0, 10.45.0.2] is up.
+[2023-11-24 22:20:04.110] [app] [info] Connection setup for PDU session[1] is successful, TUN interface[uesimtun0, 10.45.0.2] is up.
 ```
 Just in case, make sure it matches the IP address of the UE's TUNnel interface.
 ```
 # ip addr show
 ...
-5: uesimtun0: <POINTOPOINT,PROMISC,NOTRAILERS,UP,LOWER_UP> mtu 1400 qdisc fq_codel state UNKNOWN group default qlen 500
+8: uesimtun0: <POINTOPOINT,PROMISC,NOTRAILERS,UP,LOWER_UP> mtu 1400 qdisc fq_codel state UNKNOWN group default qlen 500
     link/none 
     inet 10.45.0.2/32 scope global uesimtun0
        valid_lft forever preferred_lft forever
-    inet6 fe80::419c:1ceb:5be8:5e3c/64 scope link stable-privacy 
+    inet6 fe80::91c2:7521:4ae0:a45e/64 scope link stable-privacy 
        valid_lft forever preferred_lft forever
 ...
 ```
@@ -598,84 +605,84 @@ Run `tcpdump` on VM-DN and check that the packet goes through N6 (enp0s9).
 - `ping google.com` on VM3 (UE)
 ```
 # ping google.com -I uesimtun0 -n
-PING google.com (142.250.207.46) from 10.45.0.2 uesimtun0: 56(84) bytes of data.
-64 bytes from 142.250.207.46: icmp_seq=1 ttl=61 time=44.9 ms
-64 bytes from 142.250.207.46: icmp_seq=2 ttl=61 time=24.4 ms
-64 bytes from 142.250.207.46: icmp_seq=3 ttl=61 time=20.4 ms
+PING google.com (172.217.26.238) from 10.45.0.2 uesimtun0: 56(84) bytes of data.
+64 bytes from 172.217.26.238: icmp_seq=1 ttl=61 time=53.4 ms
+64 bytes from 172.217.26.238: icmp_seq=2 ttl=61 time=30.9 ms
+64 bytes from 172.217.26.238: icmp_seq=3 ttl=61 time=25.2 ms
 ```
 - Run `tcpdump` on VM-DN
 ```
 # tcpdump -i enp0s9 -n
 tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
 listening on enp0s9, link-type EN10MB (Ethernet), snapshot length 262144 bytes
-20:21:35.898016 IP 10.45.0.2 > 142.250.207.46: ICMP echo request, id 2, seq 1, length 64
-20:21:35.940396 IP 142.250.207.46 > 10.45.0.2: ICMP echo reply, id 2, seq 1, length 64
-20:21:36.899307 IP 10.45.0.2 > 142.250.207.46: ICMP echo request, id 2, seq 2, length 64
-20:21:36.921403 IP 142.250.207.46 > 10.45.0.2: ICMP echo reply, id 2, seq 2, length 64
-20:21:37.900963 IP 10.45.0.2 > 142.250.207.46: ICMP echo request, id 2, seq 3, length 64
-20:21:37.918959 IP 142.250.207.46 > 10.45.0.2: ICMP echo reply, id 2, seq 3, length 64
+22:24:02.197203 IP 10.45.0.2 > 172.217.26.238: ICMP echo request, id 7, seq 1, length 64
+22:24:02.248044 IP 172.217.26.238 > 10.45.0.2: ICMP echo reply, id 7, seq 1, length 64
+22:24:03.198231 IP 10.45.0.2 > 172.217.26.238: ICMP echo request, id 7, seq 2, length 64
+22:24:03.226807 IP 172.217.26.238 > 10.45.0.2: ICMP echo reply, id 7, seq 2, length 64
+22:24:04.199485 IP 10.45.0.2 > 172.217.26.238: ICMP echo request, id 7, seq 3, length 64
+22:24:04.222334 IP 172.217.26.238 > 10.45.0.2: ICMP echo reply, id 7, seq 3, length 64
 ```
 - See `/sys/kernel/debug/tracing/trace_pipe` on VM-UP
 ```
 # cat /sys/kernel/debug/tracing/trace_pipe
 ...
-          <idle>-0       [000] d.s31  4465.975842: bpf_trace_printk: upf: gtp-u received
-          <idle>-0       [000] dNs31  4465.975879: bpf_trace_printk: SDF: filter protocol: 4
-          <idle>-0       [000] dNs31  4465.975885: bpf_trace_printk: SDF: filter source ip: 0.0.0.2, destination ip: 0.0.0.0
-          <idle>-0       [000] dNs31  4465.975888: bpf_trace_printk: SDF: filter source ip mask: 255.255.255.255, destination ip mask: 0.0.0.0
-          <idle>-0       [000] dNs31  4465.975890: bpf_trace_printk: SDF: filter source port lower bound: 1, source port upper bound: 65535
-          <idle>-0       [000] dNs31  4465.975892: bpf_trace_printk: SDF: filter destination port lower bound: 1, destination port upper bound: 65535
-          <idle>-0       [000] dNs31  4465.975893: bpf_trace_printk: SDF: packet protocol: 0
-          <idle>-0       [000] dNs31  4465.975895: bpf_trace_printk: SDF: packet source ip: 10.45.0.2, destination ip: 142.250.207.46
-          <idle>-0       [000] dNs31  4465.975897: bpf_trace_printk: SDF: packet source port: 0, destination port: 0
-          <idle>-0       [000] dNs31  4465.975898: bpf_trace_printk: upf: sdf filter doesn't match teid:1
-          <idle>-0       [000] dNs31  4465.975901: bpf_trace_printk: upf: far:1 action:2 outer_header_creation:0
-          <idle>-0       [000] dNs31  4465.975903: bpf_trace_printk: upf: qer:0 gate_status:0 mbr:1410065408
-          <idle>-0       [000] dNs31  4465.975905: bpf_trace_printk: upf: session for teid:1 far:1 outer_header_removal:0
-          <idle>-0       [000] dNs31  4465.975917: bpf_trace_printk: upf: bpf_fib_lookup 10.45.0.2 -> 142.250.207.46: nexthop: 192.168.16.152
-          <idle>-0       [000] d.s31  4466.018737: bpf_trace_printk: upf: downlink session for ip:10.45.0.2  far:0 action:2
-          <idle>-0       [000] dNs31  4466.018768: bpf_trace_printk: upf: qer:0 gate_status:0 mbr:1410065408
-          <idle>-0       [000] dNs31  4466.018772: bpf_trace_printk: upf: use mapping 10.45.0.2 -> TEID:1
-          <idle>-0       [000] dNs31  4466.018775: bpf_trace_printk: upf: send gtp pdu 192.168.13.151 -> 192.168.13.131
-          <idle>-0       [000] dNs31  4466.018785: bpf_trace_printk: upf: bpf_fib_lookup 192.168.13.151 -> 192.168.13.131: nexthop: 192.168.13.131
-          <idle>-0       [000] d.s31  4466.977074: bpf_trace_printk: upf: gtp-u received
-          <idle>-0       [000] dNs31  4466.977118: bpf_trace_printk: SDF: filter protocol: 4
-          <idle>-0       [000] dNs31  4466.977124: bpf_trace_printk: SDF: filter source ip: 0.0.0.2, destination ip: 0.0.0.0
-          <idle>-0       [000] dNs31  4466.977127: bpf_trace_printk: SDF: filter source ip mask: 255.255.255.255, destination ip mask: 0.0.0.0
-          <idle>-0       [000] dNs31  4466.977129: bpf_trace_printk: SDF: filter source port lower bound: 1, source port upper bound: 65535
-          <idle>-0       [000] dNs31  4466.977132: bpf_trace_printk: SDF: filter destination port lower bound: 1, destination port upper bound: 65535
-          <idle>-0       [000] dNs31  4466.977133: bpf_trace_printk: SDF: packet protocol: 0
-          <idle>-0       [000] dNs31  4466.977136: bpf_trace_printk: SDF: packet source ip: 10.45.0.2, destination ip: 142.250.207.46
-          <idle>-0       [000] dNs31  4466.977138: bpf_trace_printk: SDF: packet source port: 0, destination port: 0
-          <idle>-0       [000] dNs31  4466.977140: bpf_trace_printk: upf: sdf filter doesn't match teid:1
-          <idle>-0       [000] dNs31  4466.977143: bpf_trace_printk: upf: far:1 action:2 outer_header_creation:0
-          <idle>-0       [000] dNs31  4466.977145: bpf_trace_printk: upf: qer:0 gate_status:0 mbr:1410065408
-          <idle>-0       [000] dNs31  4466.977148: bpf_trace_printk: upf: session for teid:1 far:1 outer_header_removal:0
-          <idle>-0       [000] dNs31  4466.977161: bpf_trace_printk: upf: bpf_fib_lookup 10.45.0.2 -> 142.250.207.46: nexthop: 192.168.16.152
-          <idle>-0       [000] d.s31  4466.999696: bpf_trace_printk: upf: downlink session for ip:10.45.0.2  far:0 action:2
-          <idle>-0       [000] dNs31  4466.999723: bpf_trace_printk: upf: qer:0 gate_status:0 mbr:1410065408
-          <idle>-0       [000] dNs31  4466.999725: bpf_trace_printk: upf: use mapping 10.45.0.2 -> TEID:1
-          <idle>-0       [000] dNs31  4466.999729: bpf_trace_printk: upf: send gtp pdu 192.168.13.151 -> 192.168.13.131
-          <idle>-0       [000] dNs31  4466.999738: bpf_trace_printk: upf: bpf_fib_lookup 192.168.13.151 -> 192.168.13.131: nexthop: 192.168.13.131
-          <idle>-0       [000] d.s31  4467.978789: bpf_trace_printk: upf: gtp-u received
-          <idle>-0       [000] dNs31  4467.978824: bpf_trace_printk: SDF: filter protocol: 4
-          <idle>-0       [000] dNs31  4467.978831: bpf_trace_printk: SDF: filter source ip: 0.0.0.2, destination ip: 0.0.0.0
-          <idle>-0       [000] dNs31  4467.978834: bpf_trace_printk: SDF: filter source ip mask: 255.255.255.255, destination ip mask: 0.0.0.0
-          <idle>-0       [000] dNs31  4467.978836: bpf_trace_printk: SDF: filter source port lower bound: 1, source port upper bound: 65535
-          <idle>-0       [000] dNs31  4467.978838: bpf_trace_printk: SDF: filter destination port lower bound: 1, destination port upper bound: 65535
-          <idle>-0       [000] dNs31  4467.978839: bpf_trace_printk: SDF: packet protocol: 0
-          <idle>-0       [000] dNs31  4467.978842: bpf_trace_printk: SDF: packet source ip: 10.45.0.2, destination ip: 142.250.207.46
-          <idle>-0       [000] dNs31  4467.978843: bpf_trace_printk: SDF: packet source port: 0, destination port: 0
-          <idle>-0       [000] dNs31  4467.978845: bpf_trace_printk: upf: sdf filter doesn't match teid:1
-          <idle>-0       [000] dNs31  4467.978847: bpf_trace_printk: upf: far:1 action:2 outer_header_creation:0
-          <idle>-0       [000] dNs31  4467.978849: bpf_trace_printk: upf: qer:0 gate_status:0 mbr:1410065408
-          <idle>-0       [000] dNs31  4467.978852: bpf_trace_printk: upf: session for teid:1 far:1 outer_header_removal:0
-          <idle>-0       [000] dNs31  4467.978865: bpf_trace_printk: upf: bpf_fib_lookup 10.45.0.2 -> 142.250.207.46: nexthop: 192.168.16.152
-          <idle>-0       [000] d.s31  4467.997376: bpf_trace_printk: upf: downlink session for ip:10.45.0.2  far:0 action:2
-          <idle>-0       [000] dNs31  4467.997409: bpf_trace_printk: upf: qer:0 gate_status:0 mbr:1410065408
-          <idle>-0       [000] dNs31  4467.997412: bpf_trace_printk: upf: use mapping 10.45.0.2 -> TEID:1
-          <idle>-0       [000] dNs31  4467.997416: bpf_trace_printk: upf: send gtp pdu 192.168.13.151 -> 192.168.13.131
-          <idle>-0       [000] dNs31  4467.997426: bpf_trace_printk: upf: bpf_fib_lookup 192.168.13.151 -> 192.168.13.131: nexthop: 192.168.13.131
+          <idle>-0       [000] d.s31  1960.543816: bpf_trace_printk: upf: gtp-u received
+          <idle>-0       [000] d.s31  1960.543822: bpf_trace_printk: SDF: filter protocol: 4
+          <idle>-0       [000] d.s31  1960.543827: bpf_trace_printk: SDF: filter source ip: 0.0.0.2, destination ip: 0.0.0.0
+          <idle>-0       [000] d.s31  1960.543830: bpf_trace_printk: SDF: filter source ip mask: 255.255.255.255, destination ip mask: 0.0.0.0
+          <idle>-0       [000] d.s31  1960.543832: bpf_trace_printk: SDF: filter source port lower bound: 0, source port upper bound: 65535
+          <idle>-0       [000] d.s31  1960.543834: bpf_trace_printk: SDF: filter destination port lower bound: 0, destination port upper bound: 65535
+          <idle>-0       [000] d.s31  1960.543835: bpf_trace_printk: SDF: packet protocol: 0
+          <idle>-0       [000] d.s31  1960.543838: bpf_trace_printk: SDF: packet source ip: 10.45.0.2, destination ip: 172.217.26.238
+          <idle>-0       [000] d.s31  1960.543840: bpf_trace_printk: SDF: packet source port: 0, destination port: 0
+          <idle>-0       [000] d.s31  1960.543841: bpf_trace_printk: upf: sdf filter doesn't match teid:1
+          <idle>-0       [000] d.s31  1960.543843: bpf_trace_printk: upf: far:1 action:2 outer_header_creation:0
+          <idle>-0       [000] d.s31  1960.543845: bpf_trace_printk: upf: qer:0 gate_status:0 mbr:1410065408
+          <idle>-0       [000] d.s31  1960.543848: bpf_trace_printk: upf: session for teid:1 far:1 outer_header_removal:0
+          <idle>-0       [000] d.s31  1960.543859: bpf_trace_printk: upf: bpf_fib_lookup 10.45.0.2 -> 172.217.26.238: nexthop: 192.168.16.152
+          <idle>-0       [000] d.s31  1960.595180: bpf_trace_printk: upf: downlink session for ip:10.45.0.2  far:0 action:2
+          <idle>-0       [000] d.s31  1960.595184: bpf_trace_printk: upf: qer:0 gate_status:0 mbr:1410065408
+          <idle>-0       [000] d.s31  1960.595187: bpf_trace_printk: upf: use mapping 10.45.0.2 -> TEID:1
+          <idle>-0       [000] d.s31  1960.595192: bpf_trace_printk: upf: send gtp pdu 192.168.13.151 -> 192.168.13.131
+          <idle>-0       [000] d.s31  1960.595203: bpf_trace_printk: upf: bpf_fib_lookup 192.168.13.151 -> 192.168.13.131: nexthop: 192.168.13.131
+          <idle>-0       [000] d.s31  1961.544842: bpf_trace_printk: upf: gtp-u received
+          <idle>-0       [000] d.s31  1961.544849: bpf_trace_printk: SDF: filter protocol: 4
+          <idle>-0       [000] d.s31  1961.544854: bpf_trace_printk: SDF: filter source ip: 0.0.0.2, destination ip: 0.0.0.0
+          <idle>-0       [000] d.s31  1961.544856: bpf_trace_printk: SDF: filter source ip mask: 255.255.255.255, destination ip mask: 0.0.0.0
+          <idle>-0       [000] d.s31  1961.544859: bpf_trace_printk: SDF: filter source port lower bound: 0, source port upper bound: 65535
+          <idle>-0       [000] d.s31  1961.544861: bpf_trace_printk: SDF: filter destination port lower bound: 0, destination port upper bound: 65535
+          <idle>-0       [000] d.s31  1961.544862: bpf_trace_printk: SDF: packet protocol: 0
+          <idle>-0       [000] d.s31  1961.544865: bpf_trace_printk: SDF: packet source ip: 10.45.0.2, destination ip: 172.217.26.238
+          <idle>-0       [000] d.s31  1961.544866: bpf_trace_printk: SDF: packet source port: 0, destination port: 0
+          <idle>-0       [000] d.s31  1961.544868: bpf_trace_printk: upf: sdf filter doesn't match teid:1
+          <idle>-0       [000] d.s31  1961.544871: bpf_trace_printk: upf: far:1 action:2 outer_header_creation:0
+          <idle>-0       [000] d.s31  1961.544873: bpf_trace_printk: upf: qer:0 gate_status:0 mbr:1410065408
+          <idle>-0       [000] d.s31  1961.544875: bpf_trace_printk: upf: session for teid:1 far:1 outer_header_removal:0
+          <idle>-0       [000] d.s31  1961.544886: bpf_trace_printk: upf: bpf_fib_lookup 10.45.0.2 -> 172.217.26.238: nexthop: 192.168.16.152
+          <idle>-0       [000] d.s31  1961.573908: bpf_trace_printk: upf: downlink session for ip:10.45.0.2  far:0 action:2
+          <idle>-0       [000] d.s31  1961.573912: bpf_trace_printk: upf: qer:0 gate_status:0 mbr:1410065408
+          <idle>-0       [000] d.s31  1961.573915: bpf_trace_printk: upf: use mapping 10.45.0.2 -> TEID:1
+          <idle>-0       [000] d.s31  1961.573919: bpf_trace_printk: upf: send gtp pdu 192.168.13.151 -> 192.168.13.131
+          <idle>-0       [000] d.s31  1961.573929: bpf_trace_printk: upf: bpf_fib_lookup 192.168.13.151 -> 192.168.13.131: nexthop: 192.168.13.131
+          <idle>-0       [000] d.s31  1962.546076: bpf_trace_printk: upf: gtp-u received
+          <idle>-0       [000] d.s31  1962.546081: bpf_trace_printk: SDF: filter protocol: 4
+          <idle>-0       [000] d.s31  1962.546087: bpf_trace_printk: SDF: filter source ip: 0.0.0.2, destination ip: 0.0.0.0
+          <idle>-0       [000] d.s31  1962.546090: bpf_trace_printk: SDF: filter source ip mask: 255.255.255.255, destination ip mask: 0.0.0.0
+          <idle>-0       [000] d.s31  1962.546092: bpf_trace_printk: SDF: filter source port lower bound: 0, source port upper bound: 65535
+          <idle>-0       [000] d.s31  1962.546095: bpf_trace_printk: SDF: filter destination port lower bound: 0, destination port upper bound: 65535
+          <idle>-0       [000] d.s31  1962.546096: bpf_trace_printk: SDF: packet protocol: 0
+          <idle>-0       [000] d.s31  1962.546099: bpf_trace_printk: SDF: packet source ip: 10.45.0.2, destination ip: 172.217.26.238
+          <idle>-0       [000] d.s31  1962.546100: bpf_trace_printk: SDF: packet source port: 0, destination port: 0
+          <idle>-0       [000] d.s31  1962.546102: bpf_trace_printk: upf: sdf filter doesn't match teid:1
+          <idle>-0       [000] d.s31  1962.546104: bpf_trace_printk: upf: far:1 action:2 outer_header_creation:0
+          <idle>-0       [000] d.s31  1962.546106: bpf_trace_printk: upf: qer:0 gate_status:0 mbr:1410065408
+          <idle>-0       [000] d.s31  1962.546109: bpf_trace_printk: upf: session for teid:1 far:1 outer_header_removal:0
+          <idle>-0       [000] d.s31  1962.546121: bpf_trace_printk: upf: bpf_fib_lookup 10.45.0.2 -> 172.217.26.238: nexthop: 192.168.16.152
+          <idle>-0       [000] d.s31  1962.569405: bpf_trace_printk: upf: downlink session for ip:10.45.0.2  far:0 action:2
+          <idle>-0       [000] d.s31  1962.569408: bpf_trace_printk: upf: qer:0 gate_status:0 mbr:1410065408
+          <idle>-0       [000] d.s31  1962.569411: bpf_trace_printk: upf: use mapping 10.45.0.2 -> TEID:1
+          <idle>-0       [000] d.s31  1962.569415: bpf_trace_printk: upf: send gtp pdu 192.168.13.151 -> 192.168.13.131
+          <idle>-0       [000] d.s31  1962.569425: bpf_trace_printk: upf: bpf_fib_lookup 192.168.13.151 -> 192.168.13.131: nexthop: 192.168.13.131
 ...
 ```
 You could specify the IP address assigned to the TUNnel interface to run almost any applications as in the following example using `nr-binder` tool.
@@ -692,17 +699,17 @@ The document has moved
 ```
 - Run `tcpdump` on VM-DN
 ```
-20:24:12.076293 IP 10.45.0.2.49193 > 142.250.207.46.80: Flags [S], seq 2382828661, win 65280, options [mss 1360,sackOK,TS val 632261675 ecr 0,nop,wscale 7], length 0
-20:24:12.173347 IP 142.250.207.46.80 > 10.45.0.2.49193: Flags [S.], seq 2176001, ack 2382828662, win 65535, options [mss 1460], length 0
-20:24:12.175415 IP 10.45.0.2.49193 > 142.250.207.46.80: Flags [.], ack 1, win 65280, length 0
-20:24:12.175594 IP 10.45.0.2.49193 > 142.250.207.46.80: Flags [P.], seq 1:75, ack 1, win 65280, length 74: HTTP: GET / HTTP/1.1
-20:24:12.175760 IP 142.250.207.46.80 > 10.45.0.2.49193: Flags [.], ack 75, win 65535, length 0
-20:24:12.299902 IP 142.250.207.46.80 > 10.45.0.2.49193: Flags [P.], seq 1:774, ack 75, win 65535, length 773: HTTP: HTTP/1.1 301 Moved Permanently
-20:24:12.302150 IP 10.45.0.2.49193 > 142.250.207.46.80: Flags [.], ack 774, win 64507, length 0
-20:24:12.305040 IP 10.45.0.2.49193 > 142.250.207.46.80: Flags [F.], seq 75, ack 774, win 64507, length 0
-20:24:12.305152 IP 142.250.207.46.80 > 10.45.0.2.49193: Flags [.], ack 76, win 65535, length 0
-20:24:12.384699 IP 142.250.207.46.80 > 10.45.0.2.49193: Flags [F.], seq 774, ack 76, win 65535, length 0
-20:24:12.386754 IP 10.45.0.2.49193 > 142.250.207.46.80: Flags [.], ack 775, win 64507, length 0
+22:26:35.646877 IP 10.45.0.2.48775 > 142.251.42.174.80: Flags [S], seq 1945947551, win 65280, options [mss 1360,sackOK,TS val 215523116 ecr 0,nop,wscale 7], length 0
+22:26:35.722250 IP 142.251.42.174.80 > 10.45.0.2.48775: Flags [S.], seq 2560001, ack 1945947552, win 65535, options [mss 1460], length 0
+22:26:35.723996 IP 10.45.0.2.48775 > 142.251.42.174.80: Flags [.], ack 1, win 65280, length 0
+22:26:35.724469 IP 10.45.0.2.48775 > 142.251.42.174.80: Flags [P.], seq 1:75, ack 1, win 65280, length 74: HTTP: GET / HTTP/1.1
+22:26:35.724640 IP 142.251.42.174.80 > 10.45.0.2.48775: Flags [.], ack 75, win 65535, length 0
+22:26:35.819614 IP 142.251.42.174.80 > 10.45.0.2.48775: Flags [P.], seq 1:774, ack 75, win 65535, length 773: HTTP: HTTP/1.1 301 Moved Permanently
+22:26:35.821893 IP 10.45.0.2.48775 > 142.251.42.174.80: Flags [.], ack 774, win 64507, length 0
+22:26:35.824712 IP 10.45.0.2.48775 > 142.251.42.174.80: Flags [F.], seq 75, ack 774, win 64507, length 0
+22:26:35.824919 IP 142.251.42.174.80 > 10.45.0.2.48775: Flags [.], ack 76, win 65535, length 0
+22:26:35.888789 IP 142.251.42.174.80 > 10.45.0.2.48775: Flags [F.], seq 774, ack 76, win 65535, length 0
+22:26:35.890363 IP 10.45.0.2.48775 > 142.251.42.174.80: Flags [.], ack 775, win 64507, length 0
 ```
 Please note that the `ping` tool does not work with `nr-binder`. Please refer to [here](https://github.com/aligungr/UERANSIM/issues/186#issuecomment-729534464) for the reason.
 You could now connect to the DN and send any packets on the network using eUPF.
@@ -716,5 +723,5 @@ I would like to thank the excellent developers and all the contributors of Open5
 
 ## Changelog (summary)
 
-- [2023.11.22] Updated to eUPF `120-upf-ftup-fteid` branch that supports FTUP.
+- [2023.11.24] Updated to eUPF `120-upf-ftup-fteid` branch that supports FTUP.
 - [2023.10.29] Initial release.
