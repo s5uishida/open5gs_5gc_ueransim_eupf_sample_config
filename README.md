@@ -736,7 +736,7 @@ I would like to thank the excellent developers and all the contributors of Open5
 
 ## Changelog (summary)
 
-- [2023.12.05] The eUPF version confirmed to work in the changelog of 2023.12.04 has been tagged as `v0.6.0`.
+- [2023.12.05] The eUPF version confirmed to work in the changelog on 2023.12.04 has been tagged as `v0.6.0`.
 - [2023.12.05] Updated to Open5GS v2.7.0.
 - [2023.12.04] Updated as eUPF FTUP feature has been merged into `main` branch.
 - [2023.11.24] Updated to eUPF `120-upf-ftup-fteid` branch that supports FTUP.
