@@ -745,7 +745,7 @@ I would like to thank the excellent developers and all the contributors of Open5
 
 ## Changelog (summary)
 
-- [2024.03.31] Removed `gtpc` section in `smf.yaml`.
+- [2024.03.31] [This commit](https://github.com/open5gs/open5gs/commit/e8a3b76af395a9986234b7d339a7a96dc5bb537f) fixed the issue where SMF crashes without `gtpc` section in `smf.yaml`. So deleted the `gtpc` section in `smf.yaml` for 5G use.
 - [2024.03.24] Updated to eUPF v0.6.1.
 - [2023.12.05] The eUPF version confirmed to work in the changelog on 2023.12.04 has been tagged as `v0.6.0`.
 - [2023.12.05] Updated to Open5GS v2.7.0.
