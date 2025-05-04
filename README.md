@@ -653,7 +653,7 @@ listening on ens20, link-type EN10MB (Ethernet), snapshot length 262144 bytes
 13:47:01.709724 IP 10.45.0.2 > 142.250.196.142: ICMP echo request, id 1078, seq 3, length 64
 13:47:01.725941 IP 142.250.196.142 > 10.45.0.2: ICMP echo reply, id 1078, seq 3, length 64
 ```
-- If you have built eUPF to output the kernel log for debugging as described [here](https://github.com/s5uishida/install_eupf#generate_codes), you can see the kernel log as follows.
+If you have built eUPF to output the kernel log for debugging as described [here](https://github.com/s5uishida/install_eupf#generate_codes), you can see the kernel log as follows.
 ```
 # cat /sys/kernel/debug/tracing/trace_pipe
 ```
