@@ -696,9 +696,9 @@ I would like to thank the excellent developers and all the contributors of Open5
 
 - [2025.05.04] Updated to eUPF `v0.7.1 (2025.04.16)`, Open5GS `v2.7.5 (2025.04.25)` and UERANSIM `v3.2.7 (2025.04.28)`. Changed the VM environment from Virtualbox to Proxmox VE.
 - [2024.03.31] [This commit](https://github.com/open5gs/open5gs/commit/e8a3b76af395a9986234b7d339a7a96dc5bb537f) fixed the issue where SMF crashes without `gtpc` section in `smf.yaml`. So deleted the `gtpc` section in `smf.yaml` for 5G use.
-- [2024.03.24] Updated to eUPF v0.6.1.
+- [2024.03.24] Updated to eUPF `v0.6.1`.
 - [2023.12.05] The eUPF version confirmed to work in the changelog on 2023.12.04 has been tagged as `v0.6.0`.
-- [2023.12.05] Updated to Open5GS v2.7.0.
+- [2023.12.05] Updated to Open5GS `v2.7.0`.
 - [2023.12.04] Updated as eUPF FTUP feature has been merged into `main` branch.
 - [2023.11.24] Updated to eUPF `120-upf-ftup-fteid` branch that supports FTUP.
 - [2023.10.29] Initial release.
